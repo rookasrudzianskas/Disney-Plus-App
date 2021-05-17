@@ -224,6 +224,14 @@ const SignOut = styled.div`
   ${UserImg} {
     border-radius: 50%;
   }
+  
+  &:hover {
+    ${DropDown} {
+      opacity: 1;
+      transition-duration: 1s;
+      
+    }
+  }
 `
 
 
