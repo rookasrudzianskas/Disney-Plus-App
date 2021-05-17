@@ -46,7 +46,7 @@ const Header = (props) => {
                 </a>
 
             </NavMenu>
-            <Login>LOGIN</Login>
+            <Login onClick={handleAuth}>LOGIN</Login>
         </Nav>
     );
 };
