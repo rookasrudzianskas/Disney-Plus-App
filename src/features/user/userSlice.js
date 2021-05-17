@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// for the user
 // for the user, everything is empty at start
 const initialState = {
     name: '',
@@ -18,11 +19,22 @@ const userSlice = createSlice({
             state.email = action.payload.email;
             state.photo = action.payload.photo;
         },
-
+     //log out delete everything
      setSignOutState: state => {
-            state.name = null,
-            state.email = null,
+            state.name = null;
+            state.email = null;
             state.photo = null;
-        }
-    }
+        },
+    },
 });
+
+
+export const { setUserLoginDetails, setSignOutState } = userSlice.actions;
+
+// we get an access to name, email and photo in any other file in this project
+export const selectUserName = (state) => state.user.name
+export const selectUserEmail = (state) => state.user.email
+export const selectUserPhoto = (state) => state.user.photo
+
+
+export default userSlice.reducer;
