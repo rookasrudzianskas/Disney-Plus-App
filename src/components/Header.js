@@ -42,36 +42,43 @@ const Header = (props) => {
                 <img src="/images/logo.svg" alt=""/>
             </Logo>
 
-            <NavMenu>
-                <a href="/home">
-                    <img src="/images/home-icon.svg" alt=""/>
+            {!username ?
+                <Login onClick={handleAuth}>LOGIN</Login>
+                :
+                <>
+                    <NavMenu>
+                        <a href="/home">
+                            <img src="/images/home-icon.svg" alt=""/>
 
-                    <span>HOME</span>
-                </a>
+                            <span>HOME</span>
+                        </a>
 
-                <a>
-                    <img src="/images/search-icon.svg" />
-                    <span>SEARCH</span>
-                </a>
-                <a>
-                    <img src="/images/watchlist-icon.svg" />
-                    <span>WATCHLIST</span>
-                </a>
-                <a>
-                    <img src="/images/original-icon.svg" />
-                    <span>ORIGINALS</span>
-                </a>
-                <a>
-                    <img src="/images/movie-icon.svg" />
-                    <span>MOVIES</span>
-                </a>
-                <a>
-                    <img src="/images/series-icon.svg" />
-                    <span>SERIES</span>
-                </a>
+                        <a>
+                            <img src="/images/search-icon.svg"/>
+                            <span>SEARCH</span>
+                        </a>
+                        <a>
+                            <img src="/images/watchlist-icon.svg"/>
+                            <span>WATCHLIST</span>
+                        </a>
+                        <a>
+                            <img src="/images/original-icon.svg"/>
+                            <span>ORIGINALS</span>
+                        </a>
+                        <a>
+                            <img src="/images/movie-icon.svg"/>
+                            <span>MOVIES</span>
+                        </a>
+                        <a>
+                            <img src="/images/series-icon.svg"/>
+                            <span>SERIES</span>
+                        </a>
 
-            </NavMenu>
-            <Login onClick={handleAuth}>LOGIN</Login>
+                    </NavMenu>
+                    <UserImg src={userPhoto} />
+
+                </>
+            }
         </Nav>
     );
 };
@@ -154,13 +161,16 @@ const Login = styled.a`
   border: 1px solid #f9f9f9;
   border-radius: 4px;
   transition: all .2s ease-out 0s;
-  
+
   &:hover {
     background-color: #f9f9f9;
     color: #000;
     border-color: transparent;
     cursor: pointer;
   }
+`
+const UserImg = styled.img`
+  height: 100%;
 `
 
 
