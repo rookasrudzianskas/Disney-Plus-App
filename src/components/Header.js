@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from "styled-components";
 // importing dispatch, and select from the redux
 import { useDispatch, useSelector } from "react-redux";
@@ -15,6 +15,19 @@ const Header = (props) => {
     const username  = useSelector(selectUserName); // with select data
     const userPhoto  = useSelector(selectUserPhoto);
     const userEmail  = useSelector(selectUserEmail);
+
+    useEffect(() => {
+    //    code will run once
+
+        auth.onAuthStateChanged((user) => {
+            // listens then the auth stage changes, it checks if there is a user, if yes, so it redirects to the home and stores the user
+            // object in setUser
+            if(user) {
+                setUser(user);
+                history.push('/home');
+            }
+        })
+    }, []);
 
     const handleAuth = () => {
         auth.signInWithPopup(provider).then((result) => {
