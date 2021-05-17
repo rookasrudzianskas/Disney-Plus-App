@@ -1,16 +1,41 @@
 import React from 'react';
 import styled from "styled-components";
+// importing dispatch, and select from the redux
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import {auth, provider} from "../firebase";
+// importing the selectors to select the needed things, etc photo, username and email
+import {selectUserName, selectUserEmail, selectUserPhoto, setUserLoginDetails} from "../features/user/userSlice";
 
+// in the data layer, we are just storing the user data, and then making able to access it anywhere we want
 const Header = (props) => {
+    const dispatch = useDispatch();
+    const history = useHistory();
+    // we are just selecting the needed things to store in the user data layer
+    const username  = useSelector(selectUserName); // with select data
+    const userPhoto  = useSelector(selectUserPhoto);
+    const userEmail  = useSelector(selectUserEmail);
 
     const handleAuth = () => {
         auth.signInWithPopup(provider).then((result) => {
-            console.log(result);
+            // this is allowing me to set the user, and then use the selectors I have created to make the selects of particular things
+            // because this one, was just overall selection, it selected the full user object
+            setUser(result.user)
         }).catch((error) => {
             alert("There was en error ", error);
-        })
-    }
+        });
+    };
+
+    const setUser = (user) => {
+        // this function just runs the dispatch, which goes and shoots all the data to the data layer,
+        dispatch(
+            setUserLoginDetails({
+            name: user.displayName,
+            email: user.email,
+            photo: user.photoURL
+            })
+        );
+    };
     return (
         <Nav>
             <Logo>
