@@ -5,7 +5,9 @@ const MyComponent = () => {
     return (
         <Container>
             <Content>
-                Content
+                <BgImage>
+
+                </BgImage>
             </Content>
         </Container>
     );
