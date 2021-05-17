@@ -54,6 +54,17 @@ const BgImage = styled.div`
 
 const CTA = styled.div`
     margin-bottom: 2vw;
+    max-width: 650px;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 0;
+  text-align: center;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  
 `
 const CTALogoOne = styled.img`
   margin-bottom: 12px;
