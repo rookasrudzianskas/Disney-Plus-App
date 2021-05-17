@@ -8,6 +8,10 @@ const Header = (props) => {
                 <img src="/images/logo.svg" alt=""/>
             </Logo>
 
+            <NavMenu>
+                menu
+            </NavMenu>
+
         </Nav>
     );
 };
@@ -36,10 +40,27 @@ const Logo = styled.div`
   max-height: 70px;
   font-size: 0;
   display: inline-block;
+  cursor: pointer;
   img {
     display: block;
     width: 100%;
   }
+`
+const NavMenu = styled.div`
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100%;
+  justify-content: flex-end;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  margin-right: auto;
+  margin-left: 25px;
   
   
+  @media(max-width: 768px) {
+    display: none;
+    
+  }
 `
