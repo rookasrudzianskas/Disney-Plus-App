@@ -5,7 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {auth, provider} from "../firebase";
 // importing the selectors to select the needed things, etc photo, username and email
-import {selectUserName, selectUserEmail, selectUserPhoto, setUserLoginDetails} from "../features/user/userSlice";
+import {
+    selectUserName,
+    selectUserEmail,
+    selectUserPhoto,
+    setUserLoginDetails,
+    setSignOutState
+} from "../features/user/userSlice";
 
 // in the data layer, we are just storing the user data, and then making able to access it anywhere we want
 const Header = (props) => {
@@ -30,6 +36,7 @@ const Header = (props) => {
     }, []);
 
     const handleAuth = () => {
+        if(!username){
         auth.signInWithPopup(provider).then((result) => {
             // this is allowing me to set the user, and then use the selectors I have created to make the selects of particular things
             // because this one, was just overall selection, it selected the full user object
@@ -37,6 +44,16 @@ const Header = (props) => {
         }).catch((error) => {
             alert("There was en error ", error);
         });
+        } else if(username) {
+            auth.signOut().then(() => {
+                // it dispatches an action to the reducer, to make the user as null again
+                dispatch(setSignOutState());
+                history.push('/')
+            }).catch((error) => {
+                alert("There was an error", error);
+            })
+
+        }
     };
 
     const setUser = (user) => {
@@ -227,6 +244,7 @@ const SignOut = styled.div`
   
   &:hover {
     ${DropDown} {
+      margin-top: 10px;
       opacity: 1;
       transition-duration: 1s;
       
