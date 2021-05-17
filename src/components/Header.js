@@ -41,7 +41,7 @@ const Header = (props) => {
             <Logo>
                 <img src="/images/logo.svg" alt=""/>
             </Logo>
-
+            {/* we have all this stuff fro the selectors above*/}
             {!username ?
                 <Login onClick={handleAuth}>LOGIN</Login>
                 :
