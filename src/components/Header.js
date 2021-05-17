@@ -1,7 +1,16 @@
 import React from 'react';
 import styled from "styled-components";
+import {auth, provider} from "../firebase";
 
 const Header = (props) => {
+
+    const handleAuth = () => {
+        auth.signInWithPopup(provider).then((result) => {
+            console.log(result);
+        }).catch((error) => {
+            alert("There was en error ", error);
+        })
+    }
     return (
         <Nav>
             <Logo>
