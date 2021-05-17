@@ -5,6 +5,9 @@ const MyComponent = () => {
     return (
         <Container>
             <Content>
+                <CTA>
+                    <CTALogoOne src="/images/cta-logo-one.svg" />
+                </CTA>
                 <BgImage />
             </Content>
         </Container>
@@ -47,4 +50,15 @@ const BgImage = styled.div`
   right: 0;
   left: 0;
   z-index: -1;
+`
+
+const CTA = styled.div`
+    margin-bottom: 2vw;
+`
+const CTALogoOne = styled.img`
+  margin-bottom: 12px;
+  max-width: 600px;
+  min-height: 1px;
+  display: block;
+  width: 100%;
 `
