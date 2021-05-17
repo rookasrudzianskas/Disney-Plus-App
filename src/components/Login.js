@@ -7,6 +7,7 @@ const MyComponent = () => {
             <Content>
                 <CTA>
                     <CTALogoOne src="/images/cta-logo-one.svg" />
+                    <SignUp>GET ALL THERE</SignUp>
                 </CTA>
                 <BgImage />
             </Content>
@@ -64,6 +65,9 @@ const CTA = styled.div`
   align-items: center;
   margin-right: auto;
   margin-left: auto;
+  transition-timing-function: ease-out;
+  transition: opacity .2s;
+  width: 100%;
   
 `
 const CTALogoOne = styled.img`
@@ -72,4 +76,22 @@ const CTALogoOne = styled.img`
   min-height: 1px;
   display: block;
   width: 100%;
+`
+
+const SignUp = styled.a`
+  font-weight: bold;
+  color: #f9f9f9;
+  background-color: #0063e5;
+  margin-bottom: 12px;
+  width: 100%;
+  letter-spacing: 1.5px;
+  font-size: 18px;
+  padding: 16.5px 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  
+  &:hover {
+    background-color: #0483ee;
+    cursor: pointer;
+  }
 `
