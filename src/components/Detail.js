@@ -129,6 +129,9 @@ const Player = styled.button`
   }
 `
 
-const Trailer = styled.button`
-  
+// (Player) means we inherit from that
+const Trailer = styled(Player)`
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgb(249, 249, 249);
+  color: rgb(249, 249, 249);
 `
