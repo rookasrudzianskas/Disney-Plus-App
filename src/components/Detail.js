@@ -61,6 +61,7 @@ const Detail = () => {
                 </Controls>
 
                 <SubTitle>
+                    {/* putthing all the data from firebase*/}
                     {detailData.subTitle}
                     <Description>
                         {detailData.description}
