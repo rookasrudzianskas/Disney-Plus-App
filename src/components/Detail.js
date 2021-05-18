@@ -1,7 +1,31 @@
 import React from 'react';
 import styled from "styled-components";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import db from "../firebase";
 
 const Detail = () => {
+
+    const { id } = useParams();
+    const [ detailData, setDetailData] = useState({});
+
+    useEffect(() => {
+        // this gets updated then id changes
+        // here we are gettig not all the data, but we go to  the exact specifit id, which comes from useparams in the url
+        // we go to it, and grab all the data about that movie and store it in the detailLData
+        db.collection('movies').doc(id).get().then((doc) => {
+            // if there is such document, we go and pick it put, and store in the local state in here
+            if(doc.exists) {
+                setDetailData(doc.data());
+            } else {
+                console.log(' no such document in the Firebase 🔥')
+            }
+        }).catch((error) => {
+            alert(error)
+    });
+    }, [id]);
+
+
     return (
         <Container>
             <Background>
