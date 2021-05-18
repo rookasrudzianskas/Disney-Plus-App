@@ -1,40 +1,25 @@
 import React from 'react';
 import styled from "styled-components";
 import {Link} from "react-router-dom";
-
+import { useSelector } from "react-redux";
+import {selectNewDisney, selectRecommend} from "../features/movie/movieSlice";
 const NewDisney = () => {
+    const movies = useSelector(selectNewDisney);
+
     return (
         <Container>
             <h3>New to Disney+</h3>
             <Content>
-                <Wrap>
-                    <Link to="/">
-                        <img src="https://cdn.vox-cdn.com/thumbor/Yi-UaHGh_i7mC9gteWnrK-JlP5g=/0x0:2238x1350/1200x800/filters:focal(940x496:1298x854)/cdn.vox-cdn.com/uploads/chorus_image/image/66013482/Screen_Shot_2019_11_12_at_7.27.13_AM.0.png" alt=""/>
-
-                    </Link>
-                </Wrap>
-
-                <Wrap>
-                    <Link to="/">
-                        <img src="https://cdn.vox-cdn.com/thumbor/Yi-UaHGh_i7mC9gteWnrK-JlP5g=/0x0:2238x1350/1200x800/filters:focal(940x496:1298x854)/cdn.vox-cdn.com/uploads/chorus_image/image/66013482/Screen_Shot_2019_11_12_at_7.27.13_AM.0.png" alt=""/>
-
-                    </Link>
-                </Wrap>
-
-                <Wrap>
-                    <Link to="/">
-                        <img src="https://cdn.vox-cdn.com/thumbor/Yi-UaHGh_i7mC9gteWnrK-JlP5g=/0x0:2238x1350/1200x800/filters:focal(940x496:1298x854)/cdn.vox-cdn.com/uploads/chorus_image/image/66013482/Screen_Shot_2019_11_12_at_7.27.13_AM.0.png" alt=""/>
-
-                    </Link>
-                </Wrap>
-
-                <Wrap>
-                    <Link to="/">
-                        <img src="https://cdn.vox-cdn.com/thumbor/Yi-UaHGh_i7mC9gteWnrK-JlP5g=/0x0:2238x1350/1200x800/filters:focal(940x496:1298x854)/cdn.vox-cdn.com/uploads/chorus_image/image/66013482/Screen_Shot_2019_11_12_at_7.27.13_AM.0.png" alt=""/>
-
-                    </Link>
-                </Wrap>
-
+                {
+                    movies && movies.map((movie, key) => (
+                        <Wrap key={key}>
+                            {movie.id}
+                            <Link to={"/detail/" + movie.id}>
+                                <img src={movie.cardImg} alt={movie.title} />
+                            </Link>
+                        </Wrap>
+                    ))
+                }
             </Content>
         </Container>
     );
