@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import styled from "styled-components";
 // importing dispatch, and select from the redux
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {auth, provider} from "../firebase";
 // importing the selectors to select the needed things, etc photo, username and email
 import {
@@ -68,9 +68,11 @@ const Header = (props) => {
     };
     return (
         <Nav>
+            <Link to="/home">
             <Logo>
                 <img src="/images/logo.svg" alt=""/>
             </Logo>
+            </Link>
             {/* we have all this stuff fro the selectors above*/}
             {!username ?
                 <Login onClick={handleAuth}>LOGIN</Login>

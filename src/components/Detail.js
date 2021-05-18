@@ -29,11 +29,11 @@ const Detail = () => {
     return (
         <Container>
             <Background>
-                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8184e5a2-328b-4e78-a8e1-80f675b4d7ad/dd70dxd-d8ed5315-1f25-48ba-b8c9-948d7c86c1e5.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzgxODRlNWEyLTMyOGItNGU3OC1hOGUxLTgwZjY3NWI0ZDdhZFwvZGQ3MGR4ZC1kOGVkNTMxNS0xZjI1LTQ4YmEtYjhjOS05NDhkN2M4NmMxZTUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.r6QmlUdIzCKRsu4KpQfqG03rZA_2ulL3ok5zIgsoNNE" alt=""/>
+                <img src={detailData.backgroundImg} alt={detailData.title}/>
             </Background>
 
             <ImageTitle>
-                <img src="https://www.pikpng.com/pngl/m/482-4820066_disney-plus-logo-png-clipart.png" alt=""/>
+                <img src={detailData.titleImg} alt={detailData.title}/>
             </ImageTitle>
 
             <ContentMeta>
