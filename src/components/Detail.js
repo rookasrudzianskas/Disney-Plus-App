@@ -61,9 +61,9 @@ const Detail = () => {
                 </Controls>
 
                 <SubTitle>
-                    Subtitle
+                    {detailData.subTitle}
                     <Description>
-decription
+                        {detailData.description}
                     </Description>
                 </SubTitle>
             </ContentMeta>
