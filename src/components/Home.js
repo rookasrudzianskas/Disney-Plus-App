@@ -20,6 +20,7 @@ const Home = (props) => {
     let newDisneys = [];
     let originals = [];
     let trending = [];
+    // console.log(recommends)
 
     useEffect(() => {
         console.log("hello");
